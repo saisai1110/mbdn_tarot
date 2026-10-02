@@ -22,28 +22,28 @@ var TarotData = {
       id: "the-fool",
       name: "THE FOOL",
       number: "0",
-      uprightImage: "assets/tarot/the-fool-upright.svg",
-      reversedImage: "assets/tarot/the-fool-reversed.svg",
-      uprightText: "正位展示文字。請在此處填入您的作品說明。",
-      reversedText: "逆位展示文字。請在此處填入您的作品說明。"
+      uprightImage: "assets/tarot/the-fool-upright.png",
+      reversedImage: "assets/tarot/the-fool-reversed.jpg",
+      uprightText: "這是愚者牌的正位。代表新的開始、冒險與無限可能。",
+      reversedText: "這是愚者牌的逆位。代表魯莽、冒險可能帶來的風險。"
     },
     {
       id: "the-magician",
       name: "THE MAGICIAN",
       number: "I",
-      uprightImage: "assets/tarot/the-magician-upright.svg",
-      reversedImage: "assets/tarot/the-magician-reversed.svg",
-      uprightText: "正位展示文字。請在此處填入您的作品說明。",
-      reversedText: "逆位展示文字。請在此處填入您的作品說明。"
+      uprightImage: "assets/tarot/the-magician-upright.png",
+      reversedImage: "assets/tarot/the-magician-reversed.svg", // Fallback until provided
+      uprightText: "這是魔術師牌的正位。代表創造力、意志力與顯化。",
+      reversedText: "這是魔術師牌的逆位。代表潛能未發揮、意志薄弱。"
     },
     {
       id: "the-high-priestess",
       name: "THE HIGH PRIESTESS",
       number: "II",
-      uprightImage: "assets/tarot/the-high-priestess-upright.svg",
-      reversedImage: "assets/tarot/the-high-priestess-reversed.svg",
-      uprightText: "正位展示文字。請在此處填入您的作品說明。",
-      reversedText: "逆位展示文字。請在此處填入您的作品說明。"
+      uprightImage: "assets/tarot/the-high-priestess-upright.png",
+      reversedImage: "assets/tarot/the-high-priestess-reversed.jpg",
+      uprightText: "這是女祭司牌的正位。代表直覺、潛意識與內在智慧。",
+      reversedText: "這是女祭司牌的逆位。代表忽視直覺、隱藏的秘密。"
     }
   ]
 };

@@ -71,6 +71,19 @@
 
 
   <!-- ════════════════════════════════════════
+       ABOUT SECTION
+       ════════════════════════════════════════ -->
+  <section id="about" class="about">
+    <p class="about__label">ABOUT</p>
+    <p class="about__text">
+      每一張塔羅牌都擁有兩面——正位與逆位。<br />
+      這個展覽呈現的是同一張牌的兩種面貌，<br />
+      邀請你翻轉、凝視、感受。
+    </p>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
        GALLERY SECTION
        ════════════════════════════════════════ -->
   <section id="gallery" class="gallery">
@@ -83,19 +96,6 @@
     <div id="gallery-grid" class="gallery__grid">
       <!-- Cards are dynamically inserted by gallery.js -->
     </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════
-       ABOUT SECTION
-       ════════════════════════════════════════ -->
-  <section id="about" class="about">
-    <p class="about__label">ABOUT</p>
-    <p class="about__text">
-      每一張塔羅牌都擁有兩面——正位與逆位。<br />
-      這個展覽呈現的是同一張牌的兩種面貌，<br />
-      邀請你翻轉、凝視、感受。
-    </p>
   </section>
 
 
@@ -140,13 +140,30 @@
 
           <!-- Card Area (swipe / tap / flip zone) -->
           <div id="detail-card-area" class="detail-card-area">
+            <!-- Swipe left arrow hint -->
+            <div class="detail-swipe-hint detail-swipe-hint--left" aria-hidden="true">
+              <span class="detail-swipe-hint__arrow">‹</span>
+              <span class="detail-swipe-hint__label">PREV</span>
+            </div>
+
             <div id="detail-card-flip" class="detail-card-flip">
               <img id="detail-card-image"
                    class="detail-card-image"
                    src=""
                    alt="" />
             </div>
-            <div class="detail-card-area__flip-hint">CLICK TO FLIP</div>
+
+            <!-- Swipe right arrow hint -->
+            <div class="detail-swipe-hint detail-swipe-hint--right" aria-hidden="true">
+              <span class="detail-swipe-hint__label">NEXT</span>
+              <span class="detail-swipe-hint__arrow">›</span>
+            </div>
+
+            <!-- Click to flip hint -->
+            <div class="detail-card-area__flip-hint">
+              <span class="detail-flip-hint__icon">↻</span>
+              <span>CLICK CARD TO FLIP</span>
+            </div>
           </div>
 
           <!-- Info Panel -->
