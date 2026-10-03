@@ -35,8 +35,9 @@ var TarotData = {
       number: "II",
       uprightImage: "https://images.plurk.com/4lrASQ8zFTkeiWrL79XMsa.png",
       reversedImage: "https://images.plurk.com/IAQv73a7MIbosJR7XLwMy.png",
-      uprightText: "這是女祭司牌的正位。代表直覺、潛意識與內在智慧。",
-      reversedText: "這是女祭司牌的逆位。代表忽視直覺、隱藏的秘密。"
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-empress", 
@@ -44,8 +45,9 @@ var TarotData = {
       number: "III", 
       uprightImage: "https://images.plurk.com/YrfAFmAVzDCgcTV8uPK7J.png", 
       reversedImage: "https://images.plurk.com/7DKHbVA6x9ubULEH9AfVYW.png", 
-      uprightText: "皇后正位說明。請在此處填入您的作品說明。", 
-      reversedText: "皇后逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-emperor", 
@@ -53,8 +55,9 @@ var TarotData = {
       number: "IV", 
       uprightImage: "https://images.plurk.com/50oWEFJm8LxMYdjbhK0IPT.png ", 
       reversedImage: "https://images.plurk.com/yukTJ9dIMsx5qQ41cNKzB.png ", 
-      uprightText: "皇帝正位說明。請在此處填入您的作品說明。", 
-      reversedText: "皇帝逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-hierophant", 
@@ -62,33 +65,37 @@ var TarotData = {
       number: "V", 
       uprightImage: "https://images.plurk.com/JtiE4Q6bLV06vEzNNpF51.png", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "教皇正位說明。請在此處填入您的作品說明。", 
-      reversedText: "教皇逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-lovers", 
       name: "THE LOVERS", number: "VI", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "戀人正位說明。請在此處填入您的作品說明。", 
-      reversedText: "戀人逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-chariot", 
       name: "THE CHARIOT", 
       number: "VII", uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "https://images.plurk.com/Tj1aQPIhtBo7R518hQRQx.png", 
-      uprightText: "戰車正位說明。請在此處填入您的作品說明。", 
-      reversedText: "戰車逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "strength", 
       name: "STRENGTH", 
       number: "VIII", 
-      uprightImage: "assets/tarot/placeholder-upright.svg", 
+      uprightImage: "https://images.plurk.com/27Cd46JgyaSo1hyV6z5Mz2.png ", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "力量正位說明。請在此處填入您的作品說明。", 
-      reversedText: "力量逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-hermit", 
@@ -96,8 +103,9 @@ var TarotData = {
       number: "IX", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "隱者正位說明。請在此處填入您的作品說明。", 
-      reversedText: "隱者逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "wheel-of-fortune", 
@@ -105,8 +113,9 @@ var TarotData = {
       number: "X", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "命運之輪正位說明。請在此處填入您的作品說明。", 
-      reversedText: "命運之輪逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "justice", 
@@ -114,8 +123,9 @@ var TarotData = {
       number: "XI", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "正義正位說明。請在此處填入您的作品說明。", 
-      reversedText: "正義逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-hanged-man", 
@@ -123,8 +133,9 @@ var TarotData = {
       number: "XII", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "倒吊人正位說明。請在此處填入您的作品說明。", 
-      reversedText: "倒吊人逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "death", 
@@ -132,8 +143,9 @@ var TarotData = {
       number: "XIII", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "死神正位說明。請在此處填入您的作品說明。", 
-      reversedText: "死神逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "temperance", 
@@ -141,8 +153,9 @@ var TarotData = {
       number: "XIV", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "節制正位說明。請在此處填入您的作品說明。", 
-      reversedText: "節制逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-devil", 
@@ -150,8 +163,9 @@ var TarotData = {
       number: "XV", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "惡魔正位說明。請在此處填入您的作品說明。", 
-      reversedText: "惡魔逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-tower", 
@@ -159,8 +173,9 @@ var TarotData = {
       number: "XVI", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "高塔正位說明。請在此處填入您的作品說明。", 
-      reversedText: "高塔逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-star", 
@@ -168,8 +183,9 @@ var TarotData = {
       number: "XVII", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "星星正位說明。請在此處填入您的作品說明。", 
-      reversedText: "星星逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-moon", 
@@ -177,8 +193,9 @@ var TarotData = {
       number: "XVIII", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "月亮正位說明。請在此處填入您的作品說明。", 
-      reversedText: "月亮逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-sun", 
@@ -186,16 +203,18 @@ var TarotData = {
       number: "XIX", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "太陽正位說明。請在此處填入您的作品說明。", 
-      reversedText: "太陽逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { id: "judgement", 
       name: "JUDGEMENT", 
       number: "XX", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "審判正位說明。請在此處填入您的作品說明。", 
-      reversedText: "審判逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     },
     { 
       id: "the-world", 
@@ -203,8 +222,9 @@ var TarotData = {
       number: "XXI", 
       uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
-      uprightText: "世界正位說明。請在此處填入您的作品說明。", 
-      reversedText: "世界逆位說明。請在此處填入您的作品說明。" 
+      text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
     }
   ]
 };
