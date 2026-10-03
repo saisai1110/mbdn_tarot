@@ -1286,6 +1286,19 @@ ul, ol {
     font-size: 0.6rem;
     letter-spacing: 0.15em;
   }
+
+  .about__text {
+    font-size: 0.85rem;
+  }
+
+  .epilogue__content p {
+    font-size: 0.8rem;
+  }
+
+  .detail-info__text,
+  .detail-info__author {
+    font-size: 0.8rem;
+  }
 }
 
 
