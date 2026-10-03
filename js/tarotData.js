@@ -162,7 +162,7 @@ var TarotData = {
       id: "the-devil", 
       name: "THE DEVIL", 
       number: "XV", 
-      uprightImage: "assets/tarot/placeholder-upright.svg", 
+      uprightImage: "https://images.plurk.com/4hI2W6Lm2WryVACFpA7NRa.png", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
       text: "<span style=\"display: block; margin-bottom: 8px;\">𝑇ℎ𝑒 𝑐ℎ𝑎𝑖𝑛 𝑤𝑎𝑠 𝑚𝑎𝑑𝑒 𝑡𝑜 𝑓𝑖𝑡 𝑡ℎ𝑒 𝑠ℎ𝑎𝑝𝑒 𝑜𝑓 𝑦𝑜𝑢𝑟 𝑙𝑜𝑛𝑔𝑖𝑛𝑔.</span>「鎖鏈依照你渴望的形狀鑄成。」<br /><br />飢餓得到了餵養，孤獨也有了回音，你終於如願以償地過上了自己祈求的生活。只是在每一次的微笑與許諾之前，你的手總會下意識地抬起，去確認頸項上那條早已嵌進血肉裡的鎖鏈，依然緊緊扣著。",
       uprightAuthor: "── 正位｜Upright ──<br />🎨：道士Christii",

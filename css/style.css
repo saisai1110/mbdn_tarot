@@ -631,8 +631,9 @@ ul, ol {
 .gallery-card__number {
   font-family: var(--font-sans);
   font-size: 0.6rem;
+  font-weight: 600;
   letter-spacing: 0.3em;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .gallery-card__name {
@@ -963,8 +964,9 @@ ul, ol {
 .detail-info__number {
   font-family: var(--font-sans);
   font-size: 0.6rem;
+  font-weight: 600;
   letter-spacing: 0.4em;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   display: block;
   margin-bottom: var(--space-xs);
 }
