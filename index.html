@@ -39,10 +39,10 @@
        HEADER
        ════════════════════════════════════════ -->
   <header id="site-header" class="site-header">
-    <a href="#" id="header-logo" class="header__logo">TAROT</a>
+    <a href="#" id="header-logo" class="header__logo">MORBIDAEON</a>
     <nav class="header__nav">
-      <a href="#gallery" id="nav-gallery" class="header__nav-link">GALLERY</a>
       <a href="#about" id="nav-about" class="header__nav-link">ABOUT</a>
+      <a href="#gallery" id="nav-gallery" class="header__nav-link">GALLERY</a>
     </nav>
   </header>
 
@@ -51,16 +51,32 @@
        HERO SECTION
        ════════════════════════════════════════ -->
   <section id="hero" class="hero">
-    <h1 class="hero__title">TAROT</h1>
-    <p class="hero__subtitle">THE OTHER SIDE OF THE CARD</p>
+    <h1 class="hero__title">MORBIDAEON</h1>
+    <p class="hero__subtitle">Collaborative Tarot Deck</p>
 
-    <div class="hero__card-wrapper">
-      <div id="hero-card" class="hero__card">
-        <img class="hero-card__image hero__card-image"
-             src=""
-             alt=""
-             style="opacity: 0; transition: opacity 0.6s ease;" />
+    <div id="draw-fan-container" class="draw-fan-container">
+      <div id="draw-fan" class="draw-fan">
+        <!-- We will generate 5 cards via JS, but we can also hardcode them here for simplicity since it's a fixed fan -->
+        <div class="draw-fan__card" style="--fan-index: -2;">
+          <img src="assets/tarot/tarot-back.svg" alt="Tarot Card Back" class="draw-fan__image" />
+        </div>
+        <div class="draw-fan__card" style="--fan-index: -1;">
+          <img src="assets/tarot/tarot-back.svg" alt="Tarot Card Back" class="draw-fan__image" />
+        </div>
+        <div class="draw-fan__card" style="--fan-index: 0;">
+          <div class="draw-fan__card-inner">
+            <img src="assets/tarot/tarot-back.svg" alt="Tarot Card Back" class="draw-fan__image draw-fan__image--front" />
+            <img src="" alt="Drawn Tarot Card" class="draw-fan__image draw-fan__image--back" id="drawn-card-img" />
+          </div>
+        </div>
+        <div class="draw-fan__card" style="--fan-index: 1;">
+          <img src="assets/tarot/tarot-back.svg" alt="Tarot Card Back" class="draw-fan__image" />
+        </div>
+        <div class="draw-fan__card" style="--fan-index: 2;">
+          <img src="assets/tarot/tarot-back.svg" alt="Tarot Card Back" class="draw-fan__image" />
+        </div>
       </div>
+      <div class="draw-fan__hint">DRAW A CARD</div>
     </div>
 
     <div class="hero__scroll-hint" aria-hidden="true">
@@ -76,9 +92,11 @@
   <section id="about" class="about">
     <p class="about__label">ABOUT</p>
     <p class="about__text">
-      每一張塔羅牌都擁有兩面——正位與逆位。<br />
-      這個展覽呈現的是同一張牌的兩種面貌，<br />
-      邀請你翻轉、凝視、感受。
+      <span style="display: block; margin-bottom: 8px;">𝑀𝑎𝑦 𝑡ℎ𝑒 𝑛𝑎𝑚𝑒 𝑦𝑜𝑢 𝑏𝑢𝑟𝑖𝑒𝑑 𝑏𝑒 𝑡ℎ𝑒 𝑜𝑛𝑒 𝑡ℎ𝑎𝑡 𝑙𝑒𝑎𝑑𝑠 𝑦𝑜𝑢 ℎ𝑜𝑚𝑒.</span>
+      「願那個被你埋葬的名字，最終引你歸來。」<br /><br />
+      祂說，等此卷讀完，你也會得到祝福。<br />
+      於是，你把最不願示人的那部分留在門外，獨自踏了進去。<br /><br />
+      接下來，請依序宣讀——
     </p>
   </section>
 
@@ -91,6 +109,17 @@
       <p class="gallery__label">COLLECTION</p>
       <h2 class="gallery__title">Gallery</h2>
       <div class="gallery__divider"></div>
+      
+      <!-- Gallery Controls -->
+      <div class="gallery__controls">
+        <span class="gallery__controls-label">REVERSED</span>
+        <div id="gallery-mode-toggle" class="gallery-mode-toggle" role="switch" tabindex="0" aria-checked="false" aria-label="Toggle hover reversed/upright">
+          <div class="gallery-mode-toggle__track">
+            <div class="gallery-mode-toggle__indicator"></div>
+          </div>
+        </div>
+        <span class="gallery__controls-label">UPRIGHT</span>
+      </div>
     </div>
 
     <div id="gallery-grid" class="gallery__grid">
@@ -103,7 +132,7 @@
        FOOTER
        ════════════════════════════════════════ -->
   <footer class="site-footer">
-    <p class="footer__text">© <span id="footer-year"></span> TAROT</p>
+    <p class="footer__text">© <span id="footer-year"></span> MORBIDAEON</p>
   </footer>
 
 
@@ -120,10 +149,18 @@
 
       <!-- Detail Header -->
       <div class="detail-header">
-        <button id="detail-back" class="detail-back" aria-label="Back to gallery">
-          <span class="detail-back__arrow">←</span>
-          <span class="detail-back__text">BACK TO GALLERY</span>
-        </button>
+        <div style="display: flex; gap: var(--space-xl);">
+          <button id="detail-back" class="detail-back" aria-label="Back to gallery">
+            <span class="detail-back__arrow">←</span>
+            <span class="detail-back__text">BACK TO GALLERY</span>
+          </button>
+          
+          <!-- Draw Again Button (Hidden by default, shown when drawn) -->
+          <button id="detail-draw-again" class="detail-back" aria-label="Draw another card" style="display: none; padding-left: 0;">
+            <span class="detail-back__arrow">⟳</span>
+            <span class="detail-back__text">DRAW AGAIN</span>
+          </button>
+        </div>
         <span id="detail-counter" class="detail-counter">01 / 03</span>
       </div>
 
@@ -140,11 +177,7 @@
 
           <!-- Card Area (swipe / tap / flip zone) -->
           <div id="detail-card-area" class="detail-card-area">
-            <!-- Swipe left arrow hint -->
-            <div class="detail-swipe-hint detail-swipe-hint--left" aria-hidden="true">
-              <span class="detail-swipe-hint__arrow">‹</span>
-              <span class="detail-swipe-hint__label">PREV</span>
-            </div>
+
 
             <div id="detail-card-flip" class="detail-card-flip">
               <img id="detail-card-image"
@@ -153,11 +186,7 @@
                    alt="" />
             </div>
 
-            <!-- Swipe right arrow hint -->
-            <div class="detail-swipe-hint detail-swipe-hint--right" aria-hidden="true">
-              <span class="detail-swipe-hint__label">NEXT</span>
-              <span class="detail-swipe-hint__arrow">›</span>
-            </div>
+
 
             <!-- Click to flip hint -->
             <div class="detail-card-area__flip-hint">
@@ -170,9 +199,9 @@
           <div id="detail-info" class="detail-info">
             <span id="detail-card-number" class="detail-info__number"></span>
             <h2 id="detail-card-name" class="detail-info__name"></h2>
-            <span id="detail-card-status" class="detail-info__status">UPRIGHT</span>
             <div class="detail-info__divider"></div>
             <p id="detail-card-text" class="detail-info__text"></p>
+            <p id="detail-card-author" class="detail-info__author"></p>
 
             <!-- Toggle: UPRIGHT ● ─── ○ REVERSED -->
             <div class="detail-toggle">

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2504" height="4866" viewBox="0 0 2504 4866">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0f4fa"/>
+      <stop offset="50%" stop-color="#c8d8ee"/>
+      <stop offset="100%" stop-color="#4a7fba"/>
+    </linearGradient>
+  </defs>
+  <rect width="2504" height="4866" rx="40" fill="url(#bg)"/>
+  <rect x="50" y="50" width="2404" height="4766" rx="20" fill="none" stroke="#b8a472" stroke-width="6" opacity="0.5"/>
+  <rect x="100" y="100" width="2304" height="4666" rx="12" fill="none" stroke="#b8a472" stroke-width="3" opacity="0.25"/>
+  <line x1="150" y1="400" x2="2354" y2="400" stroke="#b8a472" stroke-width="3" opacity="0.2"/>
+  <line x1="150" y1="4466" x2="2354" y2="4466" stroke="#b8a472" stroke-width="3" opacity="0.2"/>
+  <text x="1252" y="2400" font-family="Georgia, 'Times New Roman', serif" font-size="120" fill="#1a2a44" text-anchor="middle" letter-spacing="24" font-weight="400">COMING SOON</text>
+  <text x="1252" y="2600" font-family="Arial, Helvetica, sans-serif" font-size="60" fill="#1a2a44" text-anchor="middle" letter-spacing="40" opacity="0.45">UPRIGHT</text>
+</svg>

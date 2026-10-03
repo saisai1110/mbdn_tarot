@@ -17,6 +17,15 @@ var TarotGallery = {
       var cardEl = TarotGallery.createCard(card, index);
       grid.appendChild(cardEl);
     });
+
+    // Setup toggle
+    var toggleBtn = document.getElementById('gallery-mode-toggle');
+    var gallerySection = document.getElementById('gallery');
+    if (toggleBtn && gallerySection) {
+      toggleBtn.addEventListener('click', function() {
+        gallerySection.classList.toggle('is-reversed-default');
+      });
+    }
   },
 
   /**
@@ -33,27 +42,32 @@ var TarotGallery = {
 
     el.innerHTML =
       '<div class="gallery-card__image-wrapper">' +
-        '<img class="gallery-card__image" ' +
+        '<img class="gallery-card__image gallery-card__image--upright" ' +
           'src="' + card.uprightImage + '" ' +
           'alt="' + card.name + '" ' +
+          'loading="lazy" />' +
+        '<img class="gallery-card__image gallery-card__image--reversed" ' +
+          'src="' + card.reversedImage + '" ' +
+          'alt="' + card.name + ' Reversed" ' +
           'loading="lazy" />' +
         '<div class="gallery-card__cursor-hint">VIEW</div>' +
       '</div>' +
       '<div class="gallery-card__info">' +
         '<span class="gallery-card__number">' + card.number + '</span>' +
         '<h3 class="gallery-card__name">' + card.name + '</h3>' +
-        '<span class="gallery-card__status">UPRIGHT</span>' +
       '</div>';
 
     // ── Image load fade-in ──
-    var img = el.querySelector('.gallery-card__image');
-    if (img.complete) {
-      img.classList.add('loaded');
-    } else {
-      img.addEventListener('load', function () {
+    var imgs = el.querySelectorAll('.gallery-card__image');
+    imgs.forEach(function (img) {
+      if (img.complete) {
         img.classList.add('loaded');
-      });
-    }
+      } else {
+        img.addEventListener('load', function () {
+          img.classList.add('loaded');
+        });
+      }
+    });
 
     // ── Click → open detail ──
     el.addEventListener('click', function () {

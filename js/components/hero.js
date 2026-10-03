@@ -1,50 +1,64 @@
 /**
  * ============================================
- *  HERO COMPONENT
+ *  HERO COMPONENT (DRAW A CARD)
  * ============================================
- *  Central tarot card with floating animation,
- *  mouse-tracking light effect, and click-to-open.
+ *  Manages the Tarot card drawing feature.
  * ============================================
  */
 
 var TarotHero = {
 
   init: function () {
-    var heroCard = document.getElementById('hero-card');
-    var heroSection = document.getElementById('hero');
+    var fanContainer = document.getElementById('draw-fan-container');
+    var fan = document.getElementById('draw-fan');
 
-    if (!heroCard || !heroSection) return;
+    if (!fanContainer || !fan) return;
 
-    // ── Set hero card image from first card ──
-    if (TarotData.cards.length > 0) {
-      var firstCard = TarotData.cards[0];
-      var img = heroCard.querySelector('.hero-card__image');
-      if (img) {
-        img.src = firstCard.uprightImage;
-        img.alt = firstCard.name;
-        img.addEventListener('load', function () {
-          img.style.opacity = '1';
-        });
-      }
-    }
+    var self = this;
+    fanContainer.addEventListener('click', function () {
+      if (fan.classList.contains('is-drawing')) return;
+      self.drawCard();
+    });
+  },
 
-    // ── Mouse tracking for subtle light effect ──
-    var cardWrapper = heroCard.closest('.hero__card-wrapper');
-    if (cardWrapper) {
-      heroSection.addEventListener('mousemove', function (e) {
-        var rect = cardWrapper.getBoundingClientRect();
-        var x = ((e.clientX - rect.left) / rect.width) * 100;
-        var y = ((e.clientY - rect.top) / rect.height) * 100;
-        heroCard.style.setProperty('--mouse-x', x + '%');
-        heroCard.style.setProperty('--mouse-y', y + '%');
-      });
+  drawCard: function () {
+    var fan = document.getElementById('draw-fan');
+    var drawnImg = document.getElementById('drawn-card-img');
+    
+    if (!fan || !drawnImg || TarotData.cards.length === 0) return;
 
-      // ── Click hero card → open detail view ──
-      cardWrapper.addEventListener('click', function () {
+    // 1. Randomize Result (22 cards * 2 states)
+    var maxIndex = TarotData.cards.length - 1;
+    var randomIndex = Math.floor(Math.random() * (maxIndex + 1));
+    var card = TarotData.cards[randomIndex];
+    
+    var isReversedResult = Math.random() > 0.5;
+    
+    // Set image before flipping
+    drawnImg.src = isReversedResult ? card.reversedImage : card.uprightImage;
+    drawnImg.alt = card.name + (isReversedResult ? " Reversed" : "");
+
+    // 2. Animation Sequence
+    fan.classList.remove('is-flipping');
+    fan.classList.add('is-drawing');
+
+    // Wait for extraction animation, then flip
+    setTimeout(function () {
+      fan.classList.add('is-flipping');
+      
+      // Wait for flip to complete, then open Detail View
+      setTimeout(function () {
         if (typeof TarotDetail !== 'undefined') {
-          TarotDetail.open(0, cardWrapper);
+          var forcedState = isReversedResult ? 'reversed' : 'upright';
+          TarotDetail.open(randomIndex, fan, forcedState);
         }
-      });
-    }
+        
+        // Reset fan silently after detail overlay covers it
+        setTimeout(function() {
+          fan.classList.remove('is-drawing', 'is-flipping');
+          drawnImg.src = "";
+        }, 500);
+      }, 700); 
+    }, 500);
   }
 };

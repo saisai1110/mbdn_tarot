@@ -42,6 +42,21 @@ var TarotDetail = {
       });
     }
 
+    // Draw Again button
+    var drawAgainBtn = document.getElementById('detail-draw-again');
+    if (drawAgainBtn) {
+      drawAgainBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        self.close();
+        if (typeof TarotHero !== 'undefined') {
+          // Wait for overlay to close before triggering draw
+          setTimeout(function() {
+            TarotHero.drawCard();
+          }, 400);
+        }
+      });
+    }
+
     // Toggle control
     var toggleUpright = document.getElementById('toggle-upright');
     var toggleReversed = document.getElementById('toggle-reversed');
@@ -136,13 +151,22 @@ var TarotDetail = {
 
   // ── Open Detail View ──
 
-  open: function (index, sourceEl) {
+  open: function (index, sourceEl, forcedState) {
     var overlay = document.getElementById('detail-overlay');
+    var drawAgainBtn = document.getElementById('detail-draw-again');
     if (!overlay) return;
 
     this.state.isOpen = true;
     this.state.currentIndex = index;
-    this.state.isReversed = false;
+    
+    if (forcedState) {
+      this.state.isReversed = (forcedState === 'reversed');
+      if (drawAgainBtn) drawAgainBtn.style.display = 'flex';
+    } else {
+      this.state.isReversed = false;
+      if (drawAgainBtn) drawAgainBtn.style.display = 'none';
+    }
+    
     this.state.isFlipping = false;
     this.state.isNavigating = false;
 
@@ -192,6 +216,7 @@ var TarotDetail = {
     var number = document.getElementById('detail-card-number');
     var status = document.getElementById('detail-card-status');
     var text = document.getElementById('detail-card-text');
+    var author = document.getElementById('detail-card-author');
     var counter = document.getElementById('detail-counter');
     var toggleUpright = document.getElementById('toggle-upright');
     var toggleReversed = document.getElementById('toggle-reversed');
@@ -206,8 +231,19 @@ var TarotDetail = {
     // Text content
     if (name) name.textContent = card.name;
     if (number) number.textContent = card.number;
-    if (status) status.textContent = this.state.isReversed ? 'REVERSED' : 'UPRIGHT';
-    if (text) text.textContent = this.state.isReversed ? card.reversedText : card.uprightText;
+    
+    if (text) {
+      text.innerHTML = card.text || (this.state.isReversed ? card.reversedText : card.uprightText);
+    }
+    if (author) {
+      if (card.text) {
+        author.innerHTML = this.state.isReversed ? card.reversedAuthor : card.uprightAuthor;
+        author.style.display = 'block';
+      } else {
+        author.innerHTML = '';
+        author.style.display = 'none';
+      }
+    }
 
     // Counter
     if (counter) {
@@ -240,6 +276,7 @@ var TarotDetail = {
     var flipEl = document.getElementById('detail-card-flip');
     var img = document.getElementById('detail-card-image');
     var textEl = document.getElementById('detail-card-text');
+    var authorEl = document.getElementById('detail-card-author');
     var statusEl = document.getElementById('detail-card-status');
     var toggleUpright = document.getElementById('toggle-upright');
     var toggleReversed = document.getElementById('toggle-reversed');
@@ -253,10 +290,12 @@ var TarotDetail = {
     // Toggle state
     this.state.isReversed = !this.state.isReversed;
     var card = TarotData.cards[this.state.currentIndex];
+    
+    var isSplit = !!card.text;
+    var fadeEl = isSplit ? authorEl : textEl;
 
     // Fade out text simultaneously
-    if (textEl) TarotAnimations.fadeOutText(textEl);
-    if (statusEl) TarotAnimations.fadeOutText(statusEl);
+    if (fadeEl) TarotAnimations.fadeOutText(fadeEl);
 
     // ── Phase 1: Rotate 0° → 90° ──
     flipEl.style.transition = 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)';
@@ -271,13 +310,16 @@ var TarotDetail = {
       img.alt = card.name + (self.state.isReversed ? ' — Reversed' : ' — Upright');
 
       // Update text content & fade in
-      if (textEl) {
-        textEl.textContent = self.state.isReversed ? card.reversedText : card.uprightText;
-        TarotAnimations.fadeInText(textEl);
-      }
-      if (statusEl) {
-        statusEl.textContent = self.state.isReversed ? 'REVERSED' : 'UPRIGHT';
-        TarotAnimations.fadeInText(statusEl);
+      if (isSplit) {
+        if (authorEl) {
+          authorEl.innerHTML = self.state.isReversed ? card.reversedAuthor : card.uprightAuthor;
+          TarotAnimations.fadeInText(authorEl);
+        }
+      } else {
+        if (textEl) {
+          textEl.innerHTML = self.state.isReversed ? card.reversedText : card.uprightText;
+          TarotAnimations.fadeInText(textEl);
+        }
       }
 
       // Update toggle
