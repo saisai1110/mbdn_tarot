@@ -66,7 +66,7 @@ var TarotData = {
       uprightImage: "https://images.plurk.com/6H216s5Lz0gL66v9xfUNTX.png", 
       reversedImage: "assets/tarot/placeholder-reversed.svg", 
       text: "<span style=\"display: block; margin-bottom: 8px;\">𝑇ℎ𝑒 ℎ𝑦𝑚𝑛 𝑤𝑎𝑠 𝑓𝑙𝑎𝑤𝑙𝑒𝑠𝑠 𝑤ℎ𝑒𝑟𝑒 𝑦𝑜𝑢𝑟 𝑣𝑜𝑖𝑐𝑒 𝑤𝑎𝑠 𝑚𝑖𝑠𝑠𝑖𝑛𝑔.</span>「在你歌聲缺席的空白處，那曲頌歌完美無瑕。」<br /><br />他們將最初的解答奉為教義。<br />你立於聖壇之上，教導眾人如何向未知俯首。當千百張嘴唇終於發出整齊劃一的誦唱，連你也無法分辨——那究竟是神在說話，還是人們只是學會了完美的模仿。",
-      uprightAuthor: "── 正位｜Upright ──<br />🎨：",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：歐飄",
       reversedAuthor: "── 逆位｜Reversed ──<br />🎨：芥沢",
     },
     { 
@@ -82,7 +82,7 @@ var TarotData = {
     { 
       id: "the-chariot", 
       name: "THE CHARIOT", 
-      number: "VII", uprightImage: "assets/tarot/placeholder-upright.svg", 
+      number: "VII", uprightImage: "https://images.plurk.com/1MxacTg2pKPCl93xFAze8.png ", 
       reversedImage: "https://images.plurk.com/Tj1aQPIhtBo7R518hQRQx.png", 
       text: "<span style=\"display: block; margin-bottom: 8px;\">𝑊ℎ𝑜 𝑟𝑒𝑡𝑢𝑟𝑛𝑠 𝑏𝑒𝑛𝑒𝑎𝑡ℎ 𝑡ℎ𝑒 𝑣𝑖𝑐𝑡𝑜𝑟'𝑠 𝑐𝑟𝑜𝑤𝑛?</span>「勝利的王冠之下，歸來的究竟是誰？」<br /><br />雙手勒住兩股分道揚鑣的巨力，你駕著戰車，穿過一扇又一扇高聳的凱旋門，每迎來一次歡呼，車上的行囊便被剝落一分。<br />先是恐懼，接著是憤怒，後來連那個曾刻在心底的名字也被拋在身後。當終點的旗幟終於在風中獵獵作響，你卻再也想不起，自己究竟是為何而出發。",
       uprightAuthor: "── 正位｜Upright ──<br />🎨：",
@@ -202,7 +202,7 @@ var TarotData = {
       id: "the-sun", 
       name: "THE SUN", 
       number: "XIX", 
-      uprightImage: "assets/tarot/placeholder-upright.svg", 
+      uprightImage: "https://images.plurk.com/3eiT9NbOwDJwBXJAvSNRTD.png", 
       reversedImage: "https://images.plurk.com/7kDoiIMZvfydk2TOM15xHZ.png", 
       text: "<span style=\"display: block; margin-bottom: 8px;\">𝑀𝑎𝑦 𝑡ℎ𝑒 𝑙𝑖𝑔ℎ𝑡 𝑓𝑖𝑛𝑑 𝑟𝑜𝑜𝑚 𝑓𝑜𝑟 𝑦𝑜𝑢𝑟 𝑠ℎ𝑎𝑑𝑜𝑤.</span>「願這世間的光芒，始終為你的陰影留一席之地。」<br /><br />日輪升起，萬物各自顯形，血肉重新有了溫度，笑聲有了回音，連那些曾被藏在黑夜裡的創傷，也擁有了清晰的影子。你就這樣帶著所有的曾經，以最真實的模樣，站在白晝中央。",
       uprightAuthor: "── 正位｜Upright ──<br />🎨：",
