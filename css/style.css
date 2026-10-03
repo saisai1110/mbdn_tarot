@@ -953,41 +953,6 @@ ul, ol {
 
 
 
-/* ── Flip Hint (below card) ── */
-
-.detail-card-area__flip-hint {
-  position: absolute;
-  bottom: -44px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  font-family: var(--font-sans);
-  font-size: 0.55rem;
-  letter-spacing: 0.25em;
-  color: var(--text-muted);
-  opacity: 0;
-  transition: opacity var(--dur-normal) ease;
-  white-space: nowrap;
-}
-
-.detail-flip-hint__icon {
-  font-size: 0.9rem;
-  display: inline-block;
-  animation: flipHintSpin 3s ease-in-out infinite;
-}
-
-@keyframes flipHintSpin {
-  0%, 80%, 100% { transform: rotate(0deg); }
-  90%           { transform: rotate(180deg); }
-}
-
-.detail-card-area:hover .detail-card-area__flip-hint {
-  opacity: 1;
-}
-
-
 /* ── Detail Info ── */
 
 .detail-info {
