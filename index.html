@@ -159,6 +159,25 @@
 
 
   <!-- ════════════════════════════════════════
+       CARD REVEAL OVERLAY (Typewriter transition)
+       ════════════════════════════════════════ -->
+  <div id="card-reveal-overlay" class="card-reveal-overlay" aria-hidden="true">
+    <div class="card-reveal__container">
+      <!-- Hidden Reveal: Mysterious Floating Card Back -->
+      <div class="card-reveal__card-silhouette" id="card-reveal-card" aria-hidden="true">
+        <div class="card-reveal__card-inner">
+          <img src="assets/tarot/tarot-back.svg" alt="Mysterious Tarot Card" class="card-reveal__card-back" />
+        </div>
+      </div>
+      <!-- Fixed Left-Aligned Typewriter Text Box -->
+      <div class="card-reveal__text-box">
+        <span id="card-reveal-text" class="card-reveal__text"></span><span id="card-reveal-cursor" class="card-reveal__cursor" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
        DETAIL OVERLAY
        ════════════════════════════════════════ -->
   <div id="detail-overlay" class="detail-overlay" role="dialog" aria-modal="true" aria-label="Tarot card detail view">
@@ -254,6 +273,7 @@
   <script src="js/components/hero.js"></script>
   <script src="js/components/gallery.js"></script>
   <script src="js/components/detail.js"></script>
+  <script src="js/components/cardReveal.js"></script>
   <script src="js/components/footer.js"></script>
   <script src="js/app.js"></script>
 

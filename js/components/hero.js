@@ -26,6 +26,7 @@ var TarotHero = {
     var drawnImg = document.getElementById('drawn-card-img');
     
     if (!fan || !drawnImg || TarotData.cards.length === 0) return;
+    if (typeof CardReveal !== 'undefined' && CardReveal.state.isActive) return;
 
     // 1. Randomize Result (22 cards * 2 states)
     var maxIndex = TarotData.cards.length - 1;
@@ -34,31 +35,26 @@ var TarotHero = {
     
     var isReversedResult = Math.random() > 0.5;
     
-    // Set image before flipping
-    drawnImg.src = isReversedResult ? card.reversedImage : card.uprightImage;
-    drawnImg.alt = card.name + (isReversedResult ? " Reversed" : "");
-
-    // 2. Animation Sequence
+    // 2. Animation Sequence: Extract card as Card Back (do NOT show card face!)
     fan.classList.remove('is-flipping');
     fan.classList.add('is-drawing');
 
-    // Wait for extraction animation, then flip
+    // Wait for card extraction to complete (~650ms), then start mysterious reveal sequence
     setTimeout(function () {
-      fan.classList.add('is-flipping');
-      
-      // Wait for flip to complete, then open Detail View
-      setTimeout(function () {
-        if (typeof TarotDetail !== 'undefined') {
-          var forcedState = isReversedResult ? 'reversed' : 'upright';
-          TarotDetail.open(randomIndex, fan, forcedState);
-        }
-        
-        // Reset fan silently after detail overlay covers it
-        setTimeout(function() {
-          fan.classList.remove('is-drawing', 'is-flipping');
-          drawnImg.src = "";
-        }, 500);
-      }, 700); 
-    }, 500);
+      // Route through CardReveal typewriter transition
+      if (typeof CardReveal !== 'undefined') {
+        CardReveal.start(randomIndex, isReversedResult, fan);
+      } else if (typeof TarotDetail !== 'undefined') {
+        // Fallback: open Detail directly if CardReveal not loaded
+        var forcedState = isReversedResult ? 'reversed' : 'upright';
+        TarotDetail.open(randomIndex, fan, forcedState);
+      }
+
+      // Reset fan silently after reveal overlay covers it
+      setTimeout(function() {
+        fan.classList.remove('is-drawing', 'is-flipping');
+        if (drawnImg) drawnImg.src = "";
+      }, 450);
+    }, 650);
   }
 };
