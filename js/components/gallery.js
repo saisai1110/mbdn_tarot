@@ -72,7 +72,9 @@ var TarotGallery = {
     // ── Click → open detail ──
     el.addEventListener('click', function () {
       if (typeof TarotDetail !== 'undefined') {
-        TarotDetail.open(index, el);
+        var gallerySection = document.getElementById('gallery');
+        var isReversed = gallerySection && gallerySection.classList.contains('is-reversed-default');
+        TarotDetail.open(index, el, isReversed ? 'reversed' : 'upright', false);
       }
     });
 
@@ -81,7 +83,9 @@ var TarotGallery = {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         if (typeof TarotDetail !== 'undefined') {
-          TarotDetail.open(index, el);
+          var gallerySection = document.getElementById('gallery');
+          var isReversed = gallerySection && gallerySection.classList.contains('is-reversed-default');
+          TarotDetail.open(index, el, isReversed ? 'reversed' : 'upright', false);
         }
       }
     });

@@ -280,7 +280,7 @@ var CardReveal = {
   _openDetail: function (cardIndex, isReversed, sourceEl) {
     if (typeof TarotDetail !== 'undefined') {
       var forcedState = isReversed ? 'reversed' : 'upright';
-      TarotDetail.open(cardIndex, sourceEl, forcedState);
+      TarotDetail.open(cardIndex, sourceEl, forcedState, true);
     }
   }
 };

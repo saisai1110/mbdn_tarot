@@ -1222,6 +1222,32 @@ ul, ol {
 }
 
 
+/* ── Detail View: Draw Mode (No flip, no card switching) ── */
+
+.detail-overlay--draw-mode .detail-nav {
+  display: none !important;
+}
+
+.detail-overlay--draw-mode .detail-toggle {
+  pointer-events: none !important;
+  user-select: none;
+}
+
+.detail-overlay--draw-mode .detail-toggle__option {
+  cursor: default !important;
+}
+
+.detail-overlay--draw-mode .detail-card-area {
+  cursor: default !important;
+}
+
+.detail-overlay--draw-mode .detail-card-flip:hover {
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(201, 169, 110, 0.04) !important;
+}
+
+
 /* ============================================
  *  RESPONSIVE — TABLET
  * ============================================ */

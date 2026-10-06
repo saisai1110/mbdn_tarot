@@ -21,6 +21,7 @@ var TarotDetail = {
     isOpen: false,
     currentIndex: 0,
     isReversed: false,
+    isDrawMode: false,
     isFlipping: false,
     isNavigating: false,
     swipeHandler: null
@@ -100,15 +101,15 @@ var TarotDetail = {
           break;
         case 'ArrowLeft':
           e.preventDefault();
-          self.navigate(-1);
+          if (!self.state.isDrawMode) self.navigate(-1);
           break;
         case 'ArrowRight':
           e.preventDefault();
-          self.navigate(1);
+          if (!self.state.isDrawMode) self.navigate(1);
           break;
         case ' ':
           e.preventDefault();
-          self.flip();
+          if (!self.state.isDrawMode) self.flip();
           break;
       }
     });
@@ -119,11 +120,17 @@ var TarotDetail = {
       this.state.swipeHandler = new SwipeHandler(cardArea, {
         threshold: 80,
         tapThreshold: 10,
-        onSwipeLeft: function () { self.navigate(1); },
-        onSwipeRight: function () { self.navigate(-1); },
-        onTap: function () { self.flip(); },
+        onSwipeLeft: function () {
+          if (!self.state.isDrawMode) self.navigate(1);
+        },
+        onSwipeRight: function () {
+          if (!self.state.isDrawMode) self.navigate(-1);
+        },
+        onTap: function () {
+          if (!self.state.isDrawMode) self.flip();
+        },
         onMove: function (deltaX) {
-          if (self.state.isFlipping || self.state.isNavigating) return;
+          if (self.state.isDrawMode || self.state.isFlipping || self.state.isNavigating) return;
           var flipEl = document.getElementById('detail-card-flip');
           if (flipEl) {
             flipEl.style.transition = 'none';
@@ -131,6 +138,7 @@ var TarotDetail = {
           }
         },
         onRelease: function () {
+          if (self.state.isDrawMode) return;
           var flipEl = document.getElementById('detail-card-flip');
           if (flipEl) {
             flipEl.style.transition = 'transform 500ms cubic-bezier(0.16, 1, 0.3, 1)';
@@ -151,7 +159,7 @@ var TarotDetail = {
 
   // ── Open Detail View ──
 
-  open: function (index, sourceEl, forcedState) {
+  open: function (index, sourceEl, initialState, isDrawMode) {
     var overlay = document.getElementById('detail-overlay');
     var drawAgainBtn = document.getElementById('detail-draw-again');
     if (!overlay) return;
@@ -159,12 +167,16 @@ var TarotDetail = {
     this.state.isOpen = true;
     this.state.currentIndex = index;
     
-    if (forcedState) {
-      this.state.isReversed = (forcedState === 'reversed');
+    var isDrawn = (isDrawMode === true);
+    this.state.isDrawMode = isDrawn;
+    this.state.isReversed = (initialState === 'reversed');
+
+    if (isDrawn) {
       if (drawAgainBtn) drawAgainBtn.style.display = 'flex';
+      overlay.classList.add('detail-overlay--draw-mode');
     } else {
-      this.state.isReversed = false;
       if (drawAgainBtn) drawAgainBtn.style.display = 'none';
+      overlay.classList.remove('detail-overlay--draw-mode');
     }
     
     this.state.isFlipping = false;
@@ -199,8 +211,11 @@ var TarotDetail = {
     document.body.style.overflow = '';
 
     // Wait for transition to finish before hiding
+    var self = this;
     setTimeout(function () {
       overlay.classList.remove('active');
+      overlay.classList.remove('detail-overlay--draw-mode');
+      self.state.isDrawMode = false;
     }, 550);
   },
 
@@ -269,7 +284,7 @@ var TarotDetail = {
   // ── Flip Card (3D two-phase rotation) ──
 
   flip: function () {
-    if (this.state.isFlipping || this.state.isNavigating) return;
+    if (this.state.isDrawMode || this.state.isFlipping || this.state.isNavigating) return;
     this.state.isFlipping = true;
 
     var self = this;
@@ -353,7 +368,7 @@ var TarotDetail = {
   // ── Navigate to Previous / Next Card ──
 
   navigate: function (direction) {
-    if (this.state.isFlipping || this.state.isNavigating) return;
+    if (this.state.isDrawMode || this.state.isFlipping || this.state.isNavigating) return;
     this.state.isNavigating = true;
 
     var self = this;
@@ -364,7 +379,10 @@ var TarotDetail = {
     if (newIndex >= TarotData.cards.length) newIndex = 0;
 
     this.state.currentIndex = newIndex;
-    this.state.isReversed = false;
+    
+    var gallerySection = document.getElementById('gallery');
+    var galleryIsReversed = gallerySection && gallerySection.classList.contains('is-reversed-default');
+    this.state.isReversed = !!galleryIsReversed;
 
     var cardArea = document.getElementById('detail-card-area');
     var infoArea = document.getElementById('detail-info');

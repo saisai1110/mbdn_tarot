@@ -47,7 +47,7 @@ var TarotHero = {
       } else if (typeof TarotDetail !== 'undefined') {
         // Fallback: open Detail directly if CardReveal not loaded
         var forcedState = isReversedResult ? 'reversed' : 'upright';
-        TarotDetail.open(randomIndex, fan, forcedState);
+        TarotDetail.open(randomIndex, fan, forcedState, true);
       }
 
       // Reset fan silently after reveal overlay covers it

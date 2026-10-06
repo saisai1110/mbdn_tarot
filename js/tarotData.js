@@ -24,10 +24,10 @@ var TarotData = {
       name: "THE MAGICIAN",
       number: "I",
       uprightImage: "https://images.plurk.com/6hdjWInOPvFoRzE5tfHz7f.png",
-      reversedImage: "assets/tarot/placeholder-reversed.svg", // Fallback until provided
+      reversedImage: "https://images.plurk.com/6ZOwCXVxYo2s6ExoumbwVe.png", // Fallback until provided
       text: "<span style=\"display: block; margin-bottom: 8px;\">𝐴 𝑚𝑖𝑟𝑎𝑐𝑙𝑒 𝑏𝑒𝑔𝑖𝑛𝑠 𝑤ℎ𝑒𝑟𝑒 𝑡ℎ𝑒 𝑤𝑖𝑡𝑛𝑒𝑠𝑠 𝑓𝑜𝑟𝑔𝑒𝑡𝑠 𝑡𝑜 𝑑𝑜𝑢𝑏𝑡.</span>「當見證者遺忘了懷疑，奇蹟便悄然綻放。」<br /><br />你將空杯高舉過頭，要求他們先說出酒的滋味。當最後一雙質疑的眼眸閉上，杯底終於傳來水聲。從那一刻起，人們相信你能使無成為有。",
       uprightAuthor: "── 正位｜Upright ──<br />🎨：流水",
-      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：阿舟",
     },
     {
       id: "the-high-priestess",
@@ -64,7 +64,7 @@ var TarotData = {
       name: "THE HIEROPHANT", 
       number: "V", 
       uprightImage: "https://images.plurk.com/6H216s5Lz0gL66v9xfUNTX.png", 
-      reversedImage: "https://images.plurk.com/7cOYA9DyvrRAPe6ZsUqspR.png ", 
+      reversedImage: "assets/tarot/placeholder-reversed.svg", 
       text: "<span style=\"display: block; margin-bottom: 8px;\">𝑇ℎ𝑒 ℎ𝑦𝑚𝑛 𝑤𝑎𝑠 𝑓𝑙𝑎𝑤𝑙𝑒𝑠𝑠 𝑤ℎ𝑒𝑟𝑒 𝑦𝑜𝑢𝑟 𝑣𝑜𝑖𝑐𝑒 𝑤𝑎𝑠 𝑚𝑖𝑠𝑠𝑖𝑛𝑔.</span>「在你歌聲缺席的空白處，那曲頌歌完美無瑕。」<br /><br />他們將最初的解答奉為教義。<br />你立於聖壇之上，教導眾人如何向未知俯首。當千百張嘴唇終於發出整齊劃一的誦唱，連你也無法分辨——那究竟是神在說話，還是人們只是學會了完美的模仿。",
       uprightAuthor: "── 正位｜Upright ──<br />🎨：歐飄",
       reversedAuthor: "── 逆位｜Reversed ──<br />🎨：芥沢",
@@ -82,7 +82,8 @@ var TarotData = {
     { 
       id: "the-chariot", 
       name: "THE CHARIOT", 
-      number: "VII", uprightImage: "https://images.plurk.com/1MxacTg2pKPCl93xFAze8.png ", 
+      number: "VII", 
+      uprightImage: "assets/tarot/placeholder-upright.svg", 
       reversedImage: "https://images.plurk.com/Tj1aQPIhtBo7R518hQRQx.png", 
       text: "<span style=\"display: block; margin-bottom: 8px;\">𝑊ℎ𝑜 𝑟𝑒𝑡𝑢𝑟𝑛𝑠 𝑏𝑒𝑛𝑒𝑎𝑡ℎ 𝑡ℎ𝑒 𝑣𝑖𝑐𝑡𝑜𝑟'𝑠 𝑐𝑟𝑜𝑤𝑛?</span>「勝利的王冠之下，歸來的究竟是誰？」<br /><br />雙手勒住兩股分道揚鑣的巨力，你駕著戰車，穿過一扇又一扇高聳的凱旋門，每迎來一次歡呼，車上的行囊便被剝落一分。<br />先是恐懼，接著是憤怒，後來連那個曾刻在心底的名字也被拋在身後。當終點的旗幟終於在風中獵獵作響，你卻再也想不起，自己究竟是為何而出發。",
       uprightAuthor: "── 正位｜Upright ──<br />🎨：Tora",
@@ -105,7 +106,7 @@ var TarotData = {
       uprightImage: "https://images.plurk.com/BDHU5m7UszxmhBA7CJLVJ.png ", 
       reversedImage: "https://images.plurk.com/4ET75pKHYgWxa59VzhEeGc.png", 
       text: "<span style=\"display: block; margin-bottom: 8px;\">𝐿𝑒𝑡 𝑡ℎ𝑒 𝑙𝑎𝑚𝑝 𝑟𝑒𝑣𝑒𝑎𝑙 𝑡ℎ𝑒 𝑜𝑛𝑒 𝑤ℎ𝑜 ℎ𝑎𝑠 𝑏𝑒𝑒𝑛 𝑐𝑎𝑟𝑟𝑦𝑖𝑛𝑔 𝑖𝑡.</span>「讓亮起的燈火，映出那個始終提著它的人。」<br /><br />起初，你用燈照亮腳下的路。後來，人群朝著光聚攏、跪拜。於是，你默默走得更遠，遠到任由風雪將足跡一層層覆住。在那片純粹的寂靜裡，燈火終於只為你而亮。",
-      uprightAuthor: "── 正位｜Upright ──<br />🎨：",
+      uprightAuthor: "── 正位｜Upright ──<br />🎨：猴幾^^",
       reversedAuthor: "── 逆位｜Reversed ──<br />🎨：Skiew",
     },
     { 
