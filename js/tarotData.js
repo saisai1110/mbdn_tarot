@@ -83,7 +83,7 @@ var TarotData = {
       id: "the-chariot", 
       name: "THE CHARIOT", 
       number: "VII", 
-      uprightImage: "assets/tarot/placeholder-upright.svg", 
+      uprightImage: " https://images.plurk.com/7KwolXy7nczNhdQ9poXQAb.png", 
       reversedImage: "https://images.plurk.com/Tj1aQPIhtBo7R518hQRQx.png", 
       text: "<span style=\"display: block; margin-bottom: 8px;\">𝑊ℎ𝑜 𝑟𝑒𝑡𝑢𝑟𝑛𝑠 𝑏𝑒𝑛𝑒𝑎𝑡ℎ 𝑡ℎ𝑒 𝑣𝑖𝑐𝑡𝑜𝑟'𝑠 𝑐𝑟𝑜𝑤𝑛?</span>「勝利的王冠之下，歸來的究竟是誰？」<br /><br />雙手勒住兩股分道揚鑣的巨力，你駕著戰車，穿過一扇又一扇高聳的凱旋門，每迎來一次歡呼，車上的行囊便被剝落一分。<br />先是恐懼，接著是憤怒，後來連那個曾刻在心底的名字也被拋在身後。當終點的旗幟終於在風中獵獵作響，你卻再也想不起，自己究竟是為何而出發。",
       uprightAuthor: "── 正位｜Upright ──<br />🎨：Tora",
