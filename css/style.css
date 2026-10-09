@@ -1070,6 +1070,54 @@ ul, ol {
   display: block;
 }
 
+/* ── The Hanged Man Secret Outfit Transition ── */
+
+.detail-card-image.is-transforming-secret {
+  animation: secretOutfitReveal 750ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: filter, opacity;
+}
+
+@keyframes secretOutfitReveal {
+  0% {
+    filter: blur(0px) brightness(1);
+    opacity: 1;
+  }
+  35% {
+    filter: blur(3.5px) brightness(1.18);
+    opacity: 0.86;
+  }
+  50% {
+    filter: blur(4.5px) brightness(1.24);
+    opacity: 0.8;
+  }
+  65% {
+    filter: blur(2.5px) brightness(1.12);
+    opacity: 0.9;
+  }
+  100% {
+    filter: blur(0px) brightness(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-card-image.is-transforming-secret {
+    animation: secretOutfitRevealReduced 600ms ease forwards;
+  }
+
+  @keyframes secretOutfitRevealReduced {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.75;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
 
 
 /* ── Detail Info ── */

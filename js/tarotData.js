@@ -5,7 +5,23 @@
  *  所有塔羅牌資料集中管理於此。
  *  如需新增 / 修改牌卡，只需編輯此檔案。
  * ============================================
+/**
+ * ============================================
+ *  SECRET OUTFIT CONFIGURATION (EASTER EGG)
+ * ============================================
+ *  倒吊人（THE HANGED MAN）正位隱藏服裝差分設定。
+ *  【日後替換方式】：
+ *    日後完成正式差分插圖後，只需替換下方的 image 路徑即可（支援本地路徑或線上圖床網址）：
+ *    例如：image: "assets/tarot/the-hanged-man-secret.png"
+ *         或 image: "https://images.plurk.com/正式差分圖.png"
+ * ============================================
  */
+var HANGED_MAN_SECRET_OUTFIT = {
+  cardId: "the-hanged-man",
+  // 佔位圖片：目前暫時使用專案現有的倒吊人正位圖片進行流程測試
+  image: "https://images.plurk.com/6Lq0l48RRR6kDRJo2xEqz8.png",
+  alt: "THE HANGED MAN — Secret Outfit Variant"
+};
 
 var TarotData = {
   cards: [
@@ -204,7 +220,7 @@ var TarotData = {
       name: "THE SUN", 
       number: "XIX", 
       uprightImage: "https://images.plurk.com/3eiT9NbOwDJwBXJAvSNRTD.png", 
-      reversedImage: "https://images.plurk.com/7kDoiIMZvfydk2TOM15xHZ.png", 
+      reversedImage: "https://images.plurk.com/4YbSONXzYAJTIR63YX68O.png", 
       text: "<span style=\"display: block; margin-bottom: 8px;\">𝑀𝑎𝑦 𝑡ℎ𝑒 𝑙𝑖𝑔ℎ𝑡 𝑓𝑖𝑛𝑑 𝑟𝑜𝑜𝑚 𝑓𝑜𝑟 𝑦𝑜𝑢𝑟 𝑠ℎ𝑎𝑑𝑜𝑤.</span>「願這世間的光芒，始終為你的陰影留一席之地。」<br /><br />日輪升起，萬物各自顯形，血肉重新有了溫度，笑聲有了回音，連那些曾被藏在黑夜裡的創傷，也擁有了清晰的影子。你就這樣帶著所有的曾經，以最真實的模樣，站在白晝中央。",
       uprightAuthor: "── 正位｜Upright ──<br />🎨：葉羽",
       reversedAuthor: "── 逆位｜Reversed ──<br />🎨：茜貓",

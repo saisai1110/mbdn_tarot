@@ -6,6 +6,7 @@
  *
  *  Distinguishes between:
  *    - Tap (< tapThreshold movement) → onTap
+ *    - Hold (> holdDuration without move) → onHold
  *    - Horizontal swipe (> threshold) → onSwipeLeft / onSwipeRight
  *    - Drag feedback → onMove / onRelease
  * ============================================
@@ -18,9 +19,11 @@ var SwipeHandler = (function () {
     this.opts = {
       threshold: 80,
       tapThreshold: 10,
+      holdDuration: 1200,
       onSwipeLeft: null,
       onSwipeRight: null,
       onTap: null,
+      onHold: null,
       onMove: null,
       onRelease: null
     };
@@ -36,6 +39,8 @@ var SwipeHandler = (function () {
     this.deltaX = 0;
     this.isSwiping = false;
     this.isTracking = false;
+    this.holdTimer = null;
+    this.didHold = false;
 
     this._onTouchStart = this._onTouchStart.bind(this);
     this._onTouchMove = this._onTouchMove.bind(this);
@@ -59,6 +64,18 @@ var SwipeHandler = (function () {
     this.deltaX = 0;
     this.isSwiping = false;
     this.isTracking = true;
+    this.didHold = false;
+
+    var self = this;
+    if (this.opts.onHold) {
+      clearTimeout(this.holdTimer);
+      this.holdTimer = setTimeout(function () {
+        if (self.isTracking && !self.isSwiping) {
+          self.didHold = true;
+          self.opts.onHold();
+        }
+      }, this.opts.holdDuration);
+    }
   };
 
   SwipeHandler.prototype._onTouchMove = function (e) {
@@ -67,6 +84,11 @@ var SwipeHandler = (function () {
     var touch = e.touches[0];
     this.deltaX = touch.clientX - this.startX;
     var deltaY = touch.clientY - this.startY;
+
+    if (Math.abs(this.deltaX) > this.opts.tapThreshold || Math.abs(deltaY) > this.opts.tapThreshold) {
+      clearTimeout(this.holdTimer);
+      this.holdTimer = null;
+    }
 
     if (Math.abs(this.deltaX) > Math.abs(deltaY) &&
         Math.abs(this.deltaX) > this.opts.tapThreshold) {
@@ -79,11 +101,22 @@ var SwipeHandler = (function () {
   };
 
   SwipeHandler.prototype._onTouchEnd = function () {
+    clearTimeout(this.holdTimer);
+    this.holdTimer = null;
+
     if (!this.isTracking) return;
     this.isTracking = false;
 
     if (this.opts.onRelease) {
       this.opts.onRelease();
+    }
+
+    // If hold triggered, do not trigger tap
+    if (this.didHold) {
+      this.didHold = false;
+      this.deltaX = 0;
+      this.isSwiping = false;
+      return;
     }
 
     if (this.isSwiping) {
@@ -104,7 +137,7 @@ var SwipeHandler = (function () {
     this.isSwiping = false;
   };
 
-  // ── Mouse Events (Desktop Drag) ──
+  // ── Mouse Events (Desktop Drag & Hold) ──
 
   SwipeHandler.prototype._onMouseDown = function (e) {
     e.preventDefault();
@@ -113,6 +146,18 @@ var SwipeHandler = (function () {
     this.deltaX = 0;
     this.isSwiping = false;
     this.isTracking = true;
+    this.didHold = false;
+
+    var self = this;
+    if (this.opts.onHold) {
+      clearTimeout(this.holdTimer);
+      this.holdTimer = setTimeout(function () {
+        if (self.isTracking && !self.isSwiping) {
+          self.didHold = true;
+          self.opts.onHold();
+        }
+      }, this.opts.holdDuration);
+    }
 
     document.addEventListener('mousemove', this._onMouseMove);
     document.addEventListener('mouseup', this._onMouseUp);
@@ -122,6 +167,12 @@ var SwipeHandler = (function () {
     if (!this.isTracking) return;
 
     this.deltaX = e.clientX - this.startX;
+    var deltaY = e.clientY - this.startY;
+
+    if (Math.abs(this.deltaX) > this.opts.tapThreshold || Math.abs(deltaY) > this.opts.tapThreshold) {
+      clearTimeout(this.holdTimer);
+      this.holdTimer = null;
+    }
 
     if (Math.abs(this.deltaX) > this.opts.tapThreshold) {
       this.isSwiping = true;
@@ -132,6 +183,9 @@ var SwipeHandler = (function () {
   };
 
   SwipeHandler.prototype._onMouseUp = function () {
+    clearTimeout(this.holdTimer);
+    this.holdTimer = null;
+
     document.removeEventListener('mousemove', this._onMouseMove);
     document.removeEventListener('mouseup', this._onMouseUp);
 
@@ -140,6 +194,14 @@ var SwipeHandler = (function () {
 
     if (this.opts.onRelease) {
       this.opts.onRelease();
+    }
+
+    // If hold triggered, do not trigger tap
+    if (this.didHold) {
+      this.didHold = false;
+      this.deltaX = 0;
+      this.isSwiping = false;
+      return;
     }
 
     if (this.isSwiping && Math.abs(this.deltaX) > this.opts.threshold) {
@@ -161,6 +223,8 @@ var SwipeHandler = (function () {
   // ── Destroy ──
 
   SwipeHandler.prototype.destroy = function () {
+    clearTimeout(this.holdTimer);
+    this.holdTimer = null;
     this.el.removeEventListener('touchstart', this._onTouchStart);
     this.el.removeEventListener('touchmove', this._onTouchMove);
     this.el.removeEventListener('touchend', this._onTouchEnd);

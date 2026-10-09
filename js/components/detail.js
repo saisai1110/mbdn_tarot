@@ -24,6 +24,8 @@ var TarotDetail = {
     isDrawMode: false,
     isFlipping: false,
     isNavigating: false,
+    outfitVariant: 'default', // 'default' | 'secret'
+    isSecretTransforming: false,
     swipeHandler: null
   },
 
@@ -120,6 +122,7 @@ var TarotDetail = {
       this.state.swipeHandler = new SwipeHandler(cardArea, {
         threshold: 80,
         tapThreshold: 10,
+        holdDuration: 1200,
         onSwipeLeft: function () {
           if (!self.state.isDrawMode) self.navigate(1);
         },
@@ -128,6 +131,9 @@ var TarotDetail = {
         },
         onTap: function () {
           if (!self.state.isDrawMode) self.flip();
+        },
+        onHold: function () {
+          self.triggerSecretOutfit();
         },
         onMove: function (deltaX) {
           if (self.state.isDrawMode || self.state.isFlipping || self.state.isNavigating) return;
@@ -181,6 +187,15 @@ var TarotDetail = {
     
     this.state.isFlipping = false;
     this.state.isNavigating = false;
+    this.state.outfitVariant = 'default';
+    this.state.isSecretTransforming = false;
+
+    // Preload secret variant image if opening The Hanged Man
+    var openedCard = TarotData.cards[index];
+    if (openedCard && openedCard.id === 'the-hanged-man' && typeof HANGED_MAN_SECRET_OUTFIT !== 'undefined' && HANGED_MAN_SECRET_OUTFIT.image) {
+      var preloader = new Image();
+      preloader.src = HANGED_MAN_SECRET_OUTFIT.image;
+    }
 
     this.updateContent();
 
@@ -216,6 +231,8 @@ var TarotDetail = {
       overlay.classList.remove('active');
       overlay.classList.remove('detail-overlay--draw-mode');
       self.state.isDrawMode = false;
+      self.state.outfitVariant = 'default';
+      self.state.isSecretTransforming = false;
     }, 550);
   },
 
@@ -239,8 +256,19 @@ var TarotDetail = {
 
     // Image
     if (img) {
-      img.src = this.state.isReversed ? card.reversedImage : card.uprightImage;
-      img.alt = card.name + (this.state.isReversed ? ' — Reversed' : ' — Upright');
+      if (this.state.isReversed) {
+        img.src = card.reversedImage;
+        img.alt = card.name + ' — Reversed';
+      } else {
+        var isHangedMan = (card.id === 'the-hanged-man');
+        if (isHangedMan && this.state.outfitVariant === 'secret' && typeof HANGED_MAN_SECRET_OUTFIT !== 'undefined' && HANGED_MAN_SECRET_OUTFIT.image) {
+          img.src = HANGED_MAN_SECRET_OUTFIT.image;
+          img.alt = HANGED_MAN_SECRET_OUTFIT.alt || (card.name + ' — Secret Outfit');
+        } else {
+          img.src = card.uprightImage;
+          img.alt = card.name + ' — Upright';
+        }
+      }
     }
 
     // Text content
@@ -321,8 +349,18 @@ var TarotDetail = {
       flipEl.removeEventListener('transitionend', onPhase1End);
 
       // ── Swap image at 90° ──
-      img.src = self.state.isReversed ? card.reversedImage : card.uprightImage;
-      img.alt = card.name + (self.state.isReversed ? ' — Reversed' : ' — Upright');
+      if (self.state.isReversed) {
+        img.src = card.reversedImage;
+        img.alt = card.name + ' — Reversed';
+      } else {
+        if (card.id === 'the-hanged-man' && self.state.outfitVariant === 'secret' && window.HANGED_MAN_SECRET_OUTFIT) {
+          img.src = window.HANGED_MAN_SECRET_OUTFIT.image;
+          img.alt = window.HANGED_MAN_SECRET_OUTFIT.alt || (card.name + ' — Secret Outfit');
+        } else {
+          img.src = card.uprightImage;
+          img.alt = card.name + ' — Upright';
+        }
+      }
 
       // Update text content & fade in
       if (isSplit) {
@@ -379,6 +417,8 @@ var TarotDetail = {
     if (newIndex >= TarotData.cards.length) newIndex = 0;
 
     this.state.currentIndex = newIndex;
+    this.state.outfitVariant = 'default';
+    this.state.isSecretTransforming = false;
     
     var gallerySection = document.getElementById('gallery');
     var galleryIsReversed = gallerySection && gallerySection.classList.contains('is-reversed-default');
@@ -428,5 +468,61 @@ var TarotDetail = {
       this.updateContent();
       this.state.isNavigating = false;
     }
+  },
+
+
+  // ── Secret Outfit Easter Egg Trigger ──
+
+  triggerSecretOutfit: function () {
+    if (!this.state.isOpen || this.state.isFlipping || this.state.isNavigating || this.state.isSecretTransforming) return;
+
+    var card = TarotData.cards[this.state.currentIndex];
+    if (!card || card.id !== 'the-hanged-man') return;
+    if (this.state.isReversed) return;
+    if (this.state.outfitVariant === 'secret') return;
+    if (!window.HANGED_MAN_SECRET_OUTFIT || !window.HANGED_MAN_SECRET_OUTFIT.image) return;
+
+    var self = this;
+    var img = document.getElementById('detail-card-image');
+    if (!img) return;
+
+    this.state.isSecretTransforming = true;
+    var secretSrc = window.HANGED_MAN_SECRET_OUTFIT.image;
+    var secretAlt = window.HANGED_MAN_SECRET_OUTFIT.alt || (card.name + ' — Secret Outfit');
+
+    img.classList.add('is-transforming-secret');
+
+    var midDuration = 375;
+    var totalDuration = 750;
+
+    setTimeout(function () {
+      // Ensure we are still showing the Hanged Man in upright
+      if (self.state.currentIndex === TarotData.cards.indexOf(card) && !self.state.isReversed) {
+        var testImg = new Image();
+        testImg.onload = function () {
+          img.src = secretSrc;
+          img.alt = secretAlt;
+          self.state.outfitVariant = 'secret';
+        };
+        testImg.onerror = function () {
+          // Fallback safely to standard upright image
+          img.src = card.uprightImage;
+          img.alt = card.name + ' — Upright';
+          self.state.outfitVariant = 'default';
+        };
+        testImg.src = secretSrc;
+
+        if (testImg.complete && testImg.naturalWidth !== 0) {
+          img.src = secretSrc;
+          img.alt = secretAlt;
+          self.state.outfitVariant = 'secret';
+        }
+      }
+    }, midDuration);
+
+    setTimeout(function () {
+      img.classList.remove('is-transforming-secret');
+      self.state.isSecretTransforming = false;
+    }, totalDuration);
   }
 };
