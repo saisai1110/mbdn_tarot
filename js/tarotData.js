@@ -110,10 +110,10 @@ var TarotData = {
       name: "STRENGTH", 
       number: "VIII", 
       uprightImage: "https://images.plurk.com/27Cd46JgyaSo1hyV6z5Mz2.png", 
-      reversedImage: "assets/tarot/placeholder-reversed.svg", 
+      reversedImage: "https://images.plurk.com/4d4BuM0lpwyVKuaBP0i906.png", 
       text: "<span style=\"display: block; margin-bottom: 8px;\">𝑀𝑎𝑦 𝑡ℎ𝑒 𝑏𝑒𝑎𝑠𝑡 𝑏𝑒 ℎ𝑒𝑎𝑟𝑑 𝑏𝑒𝑓𝑜𝑟𝑒 𝑖𝑡 𝑖𝑠 𝑡𝑎𝑚𝑒𝑑.</span>「猛獸受羈前，願先聆其聲。」<br /><br />他們說，你胸中的猛獸終於安靜了。<br />唯有在夜深人靜時，你仍能聽見牠利爪抓撓的聲響，你緩緩伸手按住胸口。慢慢地，抓撓停了，只剩下一股細小的顫抖，隔著掌心傳來。你就這樣靜靜守著它，直到連你自己，也終於敢向黑暗承認了害怕。",
       uprightAuthor: "── 正位｜Upright ──<br />🎨：Haruka Chen",
-      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：",
+      reversedAuthor: "── 逆位｜Reversed ──<br />🎨：藍和",
     },
     { 
       id: "the-hermit", 
