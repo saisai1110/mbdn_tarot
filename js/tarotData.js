@@ -127,7 +127,7 @@ var TarotData = {
     },
     { 
       id: "wheel-of-fortune", 
-      name: "WHEEL OF FORTUNE", 
+      name: "THE WHEEL OF FORTUNE", 
       number: "X", 
       uprightImage: "https://images.plurk.com/1JbSMPlHWvvXYBKcolIk1P.png", 
       reversedImage: "https://images.plurk.com/11cOURKRhd6Rj6DVSDBY3P.png", 
@@ -167,7 +167,7 @@ var TarotData = {
     },
     { 
       id: "temperance", 
-      name: "TEMPERANCE", 
+      name: "THE TEMPERANCE", 
       number: "XIV", 
       uprightImage: "https://images.plurk.com/46gFwj4N48C9pMI1RkB39A.png", 
       reversedImage: "https://images.plurk.com/1Il4PMNcu0JCox87rtn9lK.png", 
@@ -226,7 +226,7 @@ var TarotData = {
       reversedAuthor: "── 逆位｜Reversed ──<br />🎨：茜貓",
     },
     { id: "judgement", 
-      name: "JUDGEMENT", 
+      name: "THE JUDGEMENT", 
       number: "XX", 
       uprightImage: "https://images.plurk.com/3AKARtrdCXdK6EcF5Hy0S9.png", 
       reversedImage: "https://images.plurk.com/5zbjGwQfBLMNcR8fXBPIY5.png", 
